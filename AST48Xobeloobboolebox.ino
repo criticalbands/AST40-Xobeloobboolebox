@@ -16,7 +16,7 @@ int NOTStatus = 0;
 
 int totalInPin = 10;
 int totalout = 11;
-int buttonStatus = 0; 
+int totalStatus = 0; 
 
 void setup() {
 pinMode(ORout, OUTPUT);
@@ -55,8 +55,8 @@ else { digitalWrite(NOToutput, LOW); }
 
 
 {
-buttonStatus = digitalRead(totalInPin); 
-if (buttonStatus == LOW) // if the button is not (!=) HIGH (hence LOW) turn on the LED
+totalStatus = digitalRead(totalInPin); 
+if (totalStatus == LOW) // if the button is not (!=) HIGH (hence LOW) turn on the LED
 {digitalWrite(totalout, LOW);   } 
 
 else { digitalWrite(totalout, HIGH); } 
