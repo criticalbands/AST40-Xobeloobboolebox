@@ -1,18 +1,22 @@
-int ORpin1 = 4;
-int ORpin2 = 5;
-int ORout = 10;
+int ORpin1 = 2;
+int ORpin2 = 3;
+int ORout = 7;
 int OrStatus1 = 0;
 int OrStatus2 = 0;
 
-int ANDPin1 = 6; 
-int ANDPin2 = 7; 
-int ANDOut = 11; 
+int ANDPin1 = 4; 
+int ANDPin2 = 5; 
+int ANDOut = 8; 
 int ANDStatus1 = 0; 
 int ANDStatus2 = 0; 
 
-int NOTPin = 8; 
-int NOToutput = 12; 
+int NOTPin = 6; 
+int NOToutput = 9; 
 int NOTStatus = 0; 
+
+int totalInPin = 10;
+int totalout = 11;
+int buttonStatus = 0; 
 
 void setup() {
 pinMode(ORout, OUTPUT);
@@ -23,6 +27,8 @@ pinMode(ANDPin1, INPUT);
 pinMode(ANDPin2, INPUT);
 pinMode(NOToutput, OUTPUT); 
 pinMode(NOTPin, INPUT); 
+pinMode(totalout, OUTPUT); 
+pinMode(totalInPin, INPUT);
 }
 
 void loop(){
@@ -46,4 +52,13 @@ if (NOTStatus != HIGH) // if the button is not (!=) HIGH (hence LOW) turn on the
 {digitalWrite(NOToutput, HIGH);   } 
 
 else { digitalWrite(NOToutput, LOW); } 
+
+
+{
+buttonStatus = digitalRead(totalInPin); 
+if (buttonStatus == LOW) // if the button is not (!=) HIGH (hence LOW) turn on the LED
+{digitalWrite(totalout, LOW);   } 
+
+else { digitalWrite(totalout, HIGH); } 
+}
 }
